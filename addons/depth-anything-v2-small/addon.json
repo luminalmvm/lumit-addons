@@ -1,0 +1,38 @@
+{
+  "format": 1,
+  "id": "depth-anything-v2-small",
+  "kind": "model",
+  "name": "Depth Anything V2 Small",
+  "version": "1.0",
+  "summary": "A depth map from a single frame",
+  "licence": "Apache-2.0",
+  "licence_url": "https://huggingface.co/onnx-community/depth-anything-v2-small",
+  "homepage": "https://github.com/DepthAnything/Depth-Anything-V2",
+  "size": 99060839,
+  "requires": ["runtime"],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/resolve/main/onnx/model.onnx",
+          "sha256": "afb6a5c28f3b6bf1618c6e43f02073ef9dfdc70e937502d51603e57b0a1df10c",
+          "size": 99060839,
+          "unpack": "file",
+          "dest": "model.onnx"
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "depth",
+    "arch": "depth-anything",
+    "file": "model.onnx",
+    "input": "pixel_values",
+    "output": "predicted_depth",
+    "size": 518,
+    "multiple": 14,
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225],
+    "output_kind": "inverse-relative"
+  }
+}

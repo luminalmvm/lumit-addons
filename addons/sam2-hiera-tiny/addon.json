@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "id": "sam2-hiera-tiny",
+  "kind": "model",
+  "name": "SAM 2.1 Hiera Tiny",
+  "version": "2.1",
+  "summary": "Traces the thing you click on, to seed the Roto brush",
+  "licence": "Apache-2.0",
+  "licence_url": "https://github.com/facebookresearch/sam2/blob/main/LICENSE",
+  "homepage": "https://github.com/facebookresearch/sam2",
+  "size": 116507723,
+  "requires": ["runtime"],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://huggingface.co/vietanhdev/segment-anything-2.1-onnx-models/resolve/main/sam2.1_hiera_tiny_20260221.zip",
+          "sha256": "c602cb3f6fd297312a415f885f0df3f0eef9fbb334b069c9d30e828f2ae7c69a",
+          "size": 116507723,
+          "unpack": "zip",
+          "entries": {
+            "sam2.1_hiera_tiny.encoder.onnx": "encoder.onnx",
+            "sam2.1_hiera_tiny.decoder.onnx": "decoder.onnx"
+          }
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "segmentation",
+    "arch": "sam2",
+    "encoder": "encoder.onnx",
+    "decoder": "decoder.onnx",
+    "image": "image",
+    "embed": "image_embed",
+    "high_res": ["high_res_feats_0", "high_res_feats_1"],
+    "point_coords": "point_coords",
+    "point_labels": "point_labels",
+    "mask_input": "mask_input",
+    "has_mask_input": "has_mask_input",
+    "masks": "masks",
+    "iou": "iou_predictions",
+    "size": 1024,
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225]
+  }
+}

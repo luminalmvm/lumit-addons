@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "id": "rife",
+  "kind": "model",
+  "name": "RIFE 4.9",
+  "version": "4.9",
+  "summary": "An in-between frame made from the two real ones around it",
+  "licence": "MIT",
+  "licence_url": "https://github.com/hzwer/Practical-RIFE",
+  "homepage": "https://github.com/hzwer/Practical-RIFE",
+  "size": 21458882,
+  "requires": ["runtime"],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://huggingface.co/yuvraj108c/rife-onnx/resolve/main/rife49_ensemble_True_scale_1_sim.onnx",
+          "sha256": "76e4cef9ab42fa7dd4e8f6e4aba47462051e3faa969e4bca6479784fbab0ac6f",
+          "size": 21458882,
+          "unpack": "file",
+          "dest": "rife.onnx"
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "synthesis",
+    "arch": "rife",
+    "file": "rife.onnx",
+    "img0": "img0",
+    "img1": "img1",
+    "timestep": "timestep",
+    "output": "output",
+    "multiple": 32
+  }
+}

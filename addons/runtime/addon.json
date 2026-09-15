@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "id": "runtime",
+  "kind": "runtime",
+  "name": "Model runtime",
+  "version": "1.24.4",
+  "summary": "ONNX Runtime and the graphics provider every model pack needs",
+  "licence": "MIT",
+  "licence_url": "https://github.com/microsoft/onnxruntime/blob/main/LICENSE",
+  "homepage": "https://onnxruntime.ai",
+  "size": 214751266,
+  "requires": [],
+  "platforms": {
+    "windows-x86_64": {
+      "downloads": [
+        {
+          "url": "https://www.nuget.org/api/v2/package/Microsoft.ML.OnnxRuntime.DirectML/1.24.4",
+          "sha256": "57e9f11b73437bef7a309496135d4c1f96b1a8e9ddba60013fa27bfc1d788681",
+          "size": 12458649,
+          "unpack": "zip",
+          "entries": {
+            "runtimes/win-x64/native/onnxruntime.dll": "onnxruntime.dll",
+            "runtimes/win-x64/native/onnxruntime_providers_shared.dll": "onnxruntime_providers_shared.dll",
+            "LICENSE": "LICENSE-onnxruntime.txt"
+          }
+        },
+        {
+          "url": "https://www.nuget.org/api/v2/package/Microsoft.AI.DirectML/1.15.4",
+          "sha256": "4e7cb7ddce8cf837a7a75dc029209b520ca0101470fcdf275c1f49736a3615b9",
+          "size": 202292617,
+          "unpack": "zip",
+          "entries": {
+            "bin/x64-win/DirectML.dll": "DirectML.dll",
+            "LICENSE.txt": "LICENSE-directml.txt"
+          }
+        }
+      ]
+    },
+    "macos-aarch64": {
+      "downloads": [
+        {
+          "url": "https://www.nuget.org/api/v2/package/Microsoft.ML.OnnxRuntime/1.24.4",
+          "sha256": "4b978d5065b85e7004b6c6f60ca494bd978fbe6836cbf0a0b52d82b61ab99638",
+          "size": 125194303,
+          "unpack": "zip",
+          "entries": {
+            "runtimes/osx-arm64/native/libonnxruntime.dylib": "libonnxruntime.dylib",
+            "LICENSE": "LICENSE-onnxruntime.txt"
+          }
+        }
+      ]
+    },
+    "linux-x86_64": {
+      "downloads": [
+        {
+          "url": "https://www.nuget.org/api/v2/package/Microsoft.ML.OnnxRuntime/1.24.4",
+          "sha256": "4b978d5065b85e7004b6c6f60ca494bd978fbe6836cbf0a0b52d82b61ab99638",
+          "size": 125194303,
+          "unpack": "zip",
+          "entries": {
+            "runtimes/linux-x64/native/libonnxruntime.so": "libonnxruntime.so",
+            "LICENSE": "LICENSE-onnxruntime.txt"
+          }
+        }
+      ]
+    }
+  }
+}
