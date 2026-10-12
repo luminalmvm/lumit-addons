@@ -5,8 +5,10 @@ with DirectML on Windows and CoreML on macOS.
 
 Windows takes `onnxruntime.dll` and `onnxruntime_providers_shared.dll` from the NuGet
 package `Microsoft.ML.OnnxRuntime.DirectML`, and `DirectML.dll` from
-`Microsoft.AI.DirectML` 1.15.4. macOS and Linux take the library from the CPU package
-`Microsoft.ML.OnnxRuntime`, which carries CoreML on macOS.
+`Microsoft.AI.DirectML` 1.15.4. Linux takes the library from the CPU package
+`Microsoft.ML.OnnxRuntime`. macOS takes the same library out of that package, signed again
+with Lumit's Developer ID and kept on this repository's releases, since Lumit only loads
+libraries signed by its own team.
 
 ONNX Runtime is MIT. DirectML carries its own Microsoft licence, which allows
 redistribution inside an application built with a machine learning framework, and both

@@ -39,13 +39,13 @@
     "macos-aarch64": {
       "downloads": [
         {
-          "url": "https://www.nuget.org/api/v2/package/Microsoft.ML.OnnxRuntime/1.24.4",
-          "sha256": "4b978d5065b85e7004b6c6f60ca494bd978fbe6836cbf0a0b52d82b61ab99638",
-          "size": 125194303,
+          "url": "https://github.com/luminalmvm/lumit-addons/releases/download/runtime-1.24.4/onnxruntime-1.24.4-macos-arm64.zip",
+          "sha256": "b19cfc04746a68d284f3ad2806062f09a0bb7e329663051233c1c2589f0c3496",
+          "size": 9555787,
           "unpack": "zip",
           "entries": {
-            "runtimes/osx-arm64/native/libonnxruntime.dylib": "libonnxruntime.dylib",
-            "LICENSE": "LICENSE-onnxruntime.txt"
+            "libonnxruntime.dylib": "libonnxruntime.dylib",
+            "LICENSE-onnxruntime.txt": "LICENSE-onnxruntime.txt"
           }
         }
       ]
