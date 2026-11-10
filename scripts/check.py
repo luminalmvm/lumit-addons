@@ -17,7 +17,7 @@ from pathlib import Path
 import build_index
 
 KINDS = {"runtime", "model"}
-TASKS = {"synthesis", "depth", "matte", "segmentation"}
+TASKS = {"synthesis", "depth", "matte", "segmentation", "speech"}
 PLATFORMS = {"windows-x86_64", "macos-aarch64", "macos-x86_64", "linux-x86_64", "any"}
 UNPACKS = {"file", "zip"}
 
@@ -29,6 +29,7 @@ ARCH_TASK = {
     "rvm": "matte",
     "birefnet": "matte",
     "sam2": "segmentation",
+    "whisper": "speech",
 }
 ARCHS = set(ARCH_TASK)
 
@@ -74,6 +75,10 @@ def count(value):
     return isinstance(value, int) and not isinstance(value, bool) and value > 0
 
 
+def flag(value):
+    return isinstance(value, bool)
+
+
 def names(how_many):
     """A list of exactly this many tensor names."""
     def shaped(value):
@@ -115,6 +120,16 @@ MODEL_KEYS = {
         "high_res": names(2), "point_coords": text, "point_labels": text,
         "mask_input": text, "has_mask_input": text, "masks": text,
         "iou": text, "size": count, "mean": triple, "std": triple,
+    },
+    "whisper": {
+        "encoder": text, "decoder": text, "tokenizer": text, "generation": text,
+        "config": text, "translates": flag, "vad": text, "voices": text,
+        "features": text,
+        "hidden": text, "input_ids": text, "encoder_states": text,
+        "use_cache": text, "past": text, "present": text, "logits": text,
+        "cross_attentions": text, "vad_input": text, "vad_state": text,
+        "vad_rate": text, "vad_output": text, "vad_state_out": text,
+        "voices_input": text, "voices_output": text,
     },
 }
 
@@ -161,7 +176,7 @@ def check_model(model, where, dests, p):
     if not p.want(where, isinstance(model, dict), "model is not an object"):
         return
     task = model.get("task")
-    p.want(where, task in TASKS, f"task is {task!r}, not one of the four")
+    p.want(where, task in TASKS, f"task is {task!r}, not one of the five")
     arch = model.get("arch")
     if not p.want(where, arch in ARCHS,
                   f"arch is {arch!r}, which the engine has no code for"):
@@ -182,7 +197,8 @@ def check_model(model, where, dests, p):
                f"output_kind is {model['output_kind']!r}, not "
                f"{' or '.join(sorted(DEPTH_KINDS))}")
 
-    files = [model[key] for key in ("file", "encoder", "decoder")
+    files = [model[key] for key in ("file", "encoder", "decoder", "tokenizer",
+                                    "generation", "config", "vad", "voices")
              if text(model.get(key))]
     if not p.want(where, files, "the model names no file"):
         return
