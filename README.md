@@ -9,9 +9,10 @@ them.
 
 Every model here is an analysis model and it runs on your own machine, on your own
 graphics card. There is no account, no server and nothing metered. A model here produces
-a depth map, a matte, an in-between frame, or the shape of the thing you clicked on, and
-that is the whole list. Nothing generative will ever be listed: no text to image, no
-image to video, no prompt-written shaders, no bring-your-own-key provider.
+a depth map, a matte, an in-between frame, the shape of the thing you clicked on, or the
+words someone said with when they said them, and that is the whole list. Nothing
+generative will ever be listed: no text to image, no image to video, no prompt-written
+shaders, no bring-your-own-key provider.
 
 ## How the app reads this
 
@@ -42,7 +43,7 @@ manifest and makes sure the index matches the folders, and it runs on every push
 pull request. Pass `--fetch` to download each file and check its size and hash as well,
 which takes a while, and `--only <id>` to narrow that to one addon.
 
-What gets in is an analysis model doing one of the four tasks, under a licence anyone
+What gets in is an analysis model doing one of the five tasks, under a licence anyone
 can read. A pack under a non-commercial licence is not listed, and anything generative
 is refused.
 

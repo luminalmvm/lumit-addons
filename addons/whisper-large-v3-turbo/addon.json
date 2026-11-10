@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "id": "whisper-large-v3-turbo",
+  "kind": "model",
+  "name": "Whisper Large v3 Turbo",
+  "version": "1.0",
+  "summary": "The words said and who said them, as accurate as it gets",
+  "licence": "MIT AND Apache-2.0",
+  "licence_url": "https://github.com/openai/whisper/blob/main/LICENSE",
+  "homepage": "https://github.com/openai/whisper",
+  "size": 1116179352,
+  "requires": ["runtime"],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-large-v3-turbo_timestamped/resolve/b3f77bf9a8c4d5ea3415827033d1ffea7955fd9a/onnx/encoder_model_quantized.onnx",
+          "sha256": "a5bece0f99f86b5fed85e59b6b23299500639b283a0a6e00098e6583ed1baeb8",
+          "size": 644883359,
+          "unpack": "file",
+          "dest": "encoder_model_quantized.onnx"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-large-v3-turbo_timestamped/resolve/b3f77bf9a8c4d5ea3415827033d1ffea7955fd9a/onnx/decoder_model_merged_quantized.onnx",
+          "sha256": "b4ab1c92a9bcf8c8fdc49deacb57ac51b707d5248bc7868af42371b896c3ae52",
+          "size": 439997434,
+          "unpack": "file",
+          "dest": "decoder_model_merged_quantized.onnx"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-large-v3-turbo_timestamped/resolve/b3f77bf9a8c4d5ea3415827033d1ffea7955fd9a/tokenizer.json",
+          "sha256": "b3c8202bbf06d8ee4232c5984baa563784ac4737e2e7fdc42fa180200d3cfcdb",
+          "size": 2480645,
+          "unpack": "file",
+          "dest": "tokenizer.json"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-large-v3-turbo_timestamped/resolve/b3f77bf9a8c4d5ea3415827033d1ffea7955fd9a/generation_config.json",
+          "sha256": "8568ddf83476167b4607014956b87142763fa6923e71259a606734beb39bdfc8",
+          "size": 3797,
+          "unpack": "file",
+          "dest": "generation_config.json"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-large-v3-turbo_timestamped/resolve/b3f77bf9a8c4d5ea3415827033d1ffea7955fd9a/config.json",
+          "sha256": "32c02d1dfb9a93ff236cdcf0f741f8f3a4cedb437c407a361a022451ac009131",
+          "size": 1330,
+          "unpack": "file",
+          "dest": "config.json"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/snakers4/silero-vad/v6.2.1/src/silero_vad/data/silero_vad.onnx",
+          "sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+          "size": 2327524,
+          "unpack": "file",
+          "dest": "silero_vad.onnx"
+        },
+        {
+          "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
+          "sha256": "c59158379255ad66e161679cca6af8d52d51e389e3224ab7d7a7baae295c2db5",
+          "size": 26485263,
+          "unpack": "file",
+          "dest": "3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx"
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "speech",
+    "arch": "whisper",
+    "encoder": "encoder_model_quantized.onnx",
+    "decoder": "decoder_model_merged_quantized.onnx",
+    "tokenizer": "tokenizer.json",
+    "generation": "generation_config.json",
+    "config": "config.json",
+    "translates": false,
+    "vad": "silero_vad.onnx",
+    "voices": "3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
+    "features": "input_features",
+    "hidden": "last_hidden_state",
+    "input_ids": "input_ids",
+    "encoder_states": "encoder_hidden_states",
+    "use_cache": "use_cache_branch",
+    "past": "past_key_values",
+    "present": "present",
+    "logits": "logits",
+    "cross_attentions": "cross_attentions",
+    "vad_input": "input",
+    "vad_state": "state",
+    "vad_rate": "sr",
+    "vad_output": "output",
+    "vad_state_out": "stateN",
+    "voices_input": "x",
+    "voices_output": "embedding"
+  }
+}

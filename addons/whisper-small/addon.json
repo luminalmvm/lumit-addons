@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "id": "whisper-small",
+  "kind": "model",
+  "name": "Whisper Small",
+  "version": "1.0",
+  "summary": "The words said and who said them, quick and light",
+  "licence": "MIT AND Apache-2.0",
+  "licence_url": "https://github.com/openai/whisper/blob/main/LICENSE",
+  "homepage": "https://github.com/openai/whisper",
+  "size": 280335621,
+  "requires": ["runtime"],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-small_timestamped/resolve/65caa70f294b46e1c33ff820aae6b16d048ab818/onnx/encoder_model_quantized.onnx",
+          "sha256": "9f5635b596e6084045c7426ca6f6f99db8ce606ea895397c3b4a3c0aa3f9b070",
+          "size": 92240498,
+          "unpack": "file",
+          "dest": "encoder_model_quantized.onnx"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-small_timestamped/resolve/65caa70f294b46e1c33ff820aae6b16d048ab818/onnx/decoder_model_merged_quantized.onnx",
+          "sha256": "c831996a6d5a535cf17447b0d7ecc36da6b72696e6fb906852ba6136b9199abb",
+          "size": 156795750,
+          "unpack": "file",
+          "dest": "decoder_model_merged_quantized.onnx"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-small_timestamped/resolve/65caa70f294b46e1c33ff820aae6b16d048ab818/tokenizer.json",
+          "sha256": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566",
+          "size": 2480466,
+          "unpack": "file",
+          "dest": "tokenizer.json"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-small_timestamped/resolve/65caa70f294b46e1c33ff820aae6b16d048ab818/generation_config.json",
+          "sha256": "f538b28220c6a6d6f1af1458d4141cacb4ef4963df3de98a19490440c412ddf0",
+          "size": 3893,
+          "unpack": "file",
+          "dest": "generation_config.json"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/whisper-small_timestamped/resolve/65caa70f294b46e1c33ff820aae6b16d048ab818/config.json",
+          "sha256": "457854d452f17661e197d74aee12b8e74fb75ba30ebfaa7426d0d61ea1e08a18",
+          "size": 2227,
+          "unpack": "file",
+          "dest": "config.json"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/snakers4/silero-vad/v6.2.1/src/silero_vad/data/silero_vad.onnx",
+          "sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+          "size": 2327524,
+          "unpack": "file",
+          "dest": "silero_vad.onnx"
+        },
+        {
+          "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
+          "sha256": "c59158379255ad66e161679cca6af8d52d51e389e3224ab7d7a7baae295c2db5",
+          "size": 26485263,
+          "unpack": "file",
+          "dest": "3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx"
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "speech",
+    "arch": "whisper",
+    "encoder": "encoder_model_quantized.onnx",
+    "decoder": "decoder_model_merged_quantized.onnx",
+    "tokenizer": "tokenizer.json",
+    "generation": "generation_config.json",
+    "config": "config.json",
+    "translates": true,
+    "vad": "silero_vad.onnx",
+    "voices": "3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
+    "features": "input_features",
+    "hidden": "last_hidden_state",
+    "input_ids": "input_ids",
+    "encoder_states": "encoder_hidden_states",
+    "use_cache": "use_cache_branch",
+    "past": "past_key_values",
+    "present": "present",
+    "logits": "logits",
+    "cross_attentions": "cross_attentions",
+    "vad_input": "input",
+    "vad_state": "state",
+    "vad_rate": "sr",
+    "vad_output": "output",
+    "vad_state_out": "stateN",
+    "voices_input": "x",
+    "voices_output": "embedding"
+  }
+}
