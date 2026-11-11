@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "id": "deepfilternet3",
+  "kind": "model",
+  "name": "DeepFilterNet3",
+  "version": "3.0",
+  "summary": "Keeps speech and turns everything else down",
+  "licence": "MIT OR Apache-2.0",
+  "licence_url": "https://github.com/Rikorose/DeepFilterNet#license",
+  "homepage": "https://github.com/Rikorose/DeepFilterNet",
+  "size": 7983136,
+  "requires": [
+    "runtime"
+  ],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://raw.githubusercontent.com/Rikorose/DeepFilterNet/978576aa8400552a4ce9730838c635aa30db5e61/models/DeepFilterNet3_onnx.tar.gz",
+          "sha256": "c94d91f70911001c946e0fabb4aa9adc37045f45a03b56008cb0c8244cb63616",
+          "size": 7983136,
+          "unpack": "tar.gz",
+          "entries": {
+            "tmp/export/enc.onnx": "enc.onnx",
+            "tmp/export/erb_dec.onnx": "erb_dec.onnx",
+            "tmp/export/df_dec.onnx": "df_dec.onnx"
+          }
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "voice",
+    "arch": "deep-filter",
+    "enc": "enc.onnx",
+    "erb_dec": "erb_dec.onnx",
+    "df_dec": "df_dec.onnx",
+    "feat_erb": "feat_erb",
+    "feat_spec": "feat_spec",
+    "mask": "m",
+    "coefs": "coefs",
+    "sr": 48000,
+    "fft_size": 960,
+    "hop_size": 480,
+    "nb_erb": 32,
+    "min_nb_erb_freqs": 2,
+    "nb_df": 96,
+    "df_order": 5,
+    "df_lookahead": 2,
+    "conv_lookahead": 2,
+    "norm_alpha": 0.99
+  }
+}

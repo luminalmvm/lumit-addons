@@ -17,9 +17,9 @@ from pathlib import Path
 import build_index
 
 KINDS = {"runtime", "model"}
-TASKS = {"synthesis", "depth", "matte", "segmentation", "speech"}
+TASKS = {"synthesis", "depth", "matte", "segmentation", "speech", "voice"}
 PLATFORMS = {"windows-x86_64", "macos-aarch64", "macos-x86_64", "linux-x86_64", "any"}
-UNPACKS = {"file", "zip"}
+UNPACKS = {"file", "zip", "tar.gz"}
 
 # The one task each family does. The engine refuses a pack whose task and arch
 # disagree, so the catalogue refuses it first.
@@ -30,6 +30,7 @@ ARCH_TASK = {
     "birefnet": "matte",
     "sam2": "segmentation",
     "whisper": "speech",
+    "deep-filter": "voice",
 }
 ARCHS = set(ARCH_TASK)
 
@@ -87,6 +88,10 @@ def names(how_many):
     return shaped
 
 
+def number(value):
+    return isinstance(value, (int, float)) and not isinstance(value, bool)
+
+
 def triple(value):
     """Three numbers, one per colour channel."""
     return (isinstance(value, list) and len(value) == 3
@@ -131,6 +136,13 @@ MODEL_KEYS = {
         "vad_rate": text, "vad_output": text, "vad_state_out": text,
         "voices_input": text, "voices_output": text,
     },
+    "deep-filter": {
+        "enc": text, "erb_dec": text, "df_dec": text, "feat_erb": text,
+        "feat_spec": text, "mask": text, "coefs": text, "sr": count,
+        "fft_size": count, "hop_size": count, "nb_erb": count,
+        "min_nb_erb_freqs": count, "nb_df": count, "df_order": count,
+        "df_lookahead": count, "conv_lookahead": count, "norm_alpha": number,
+    },
 }
 
 
@@ -149,7 +161,7 @@ def check_download(d, where, p):
     p.want(where, count(d.get("size")), "a download has no size in bytes")
 
     unpack = d.get("unpack")
-    if not p.want(where, unpack in UNPACKS, f"unpack is {unpack!r}, not file or zip"):
+    if not p.want(where, unpack in UNPACKS, f"unpack is {unpack!r}, not file, zip or tar.gz"):
         return dests
 
     if unpack == "file":
@@ -161,9 +173,9 @@ def check_download(d, where, p):
     else:
         entries = d.get("entries")
         if not p.want(where, isinstance(entries, dict) and entries,
-                      "unpack zip needs entries"):
+                      f"unpack {unpack} needs entries"):
             return dests
-        p.want(where, "dest" not in d, "unpack zip must not carry dest")
+        p.want(where, "dest" not in d, f"unpack {unpack} must not carry dest")
         for inside, dest in entries.items():
             if p.want(where, text(inside) and text(dest) and FILENAME.match(dest),
                       f"entry {inside!r} has no plain dest filename"):
@@ -176,7 +188,7 @@ def check_model(model, where, dests, p):
     if not p.want(where, isinstance(model, dict), "model is not an object"):
         return
     task = model.get("task")
-    p.want(where, task in TASKS, f"task is {task!r}, not one of the five")
+    p.want(where, task in TASKS, f"task is {task!r}, not one of the six")
     arch = model.get("arch")
     if not p.want(where, arch in ARCHS,
                   f"arch is {arch!r}, which the engine has no code for"):
@@ -198,7 +210,8 @@ def check_model(model, where, dests, p):
                f"{' or '.join(sorted(DEPTH_KINDS))}")
 
     files = [model[key] for key in ("file", "encoder", "decoder", "tokenizer",
-                                    "generation", "config", "vad", "voices")
+                                    "generation", "config", "vad", "voices",
+                                    "enc", "erb_dec", "df_dec")
              if text(model.get(key))]
     if not p.want(where, files, "the model names no file"):
         return
