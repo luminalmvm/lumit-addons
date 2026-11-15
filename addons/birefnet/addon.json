@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "id": "birefnet",
+  "kind": "model",
+  "name": "BiRefNet",
+  "version": "1.0",
+  "summary": "A cleaner matte for the main subject of a still",
+  "notes": "The weights are trained on DIS5K, whose terms are non-commercial.",
+  "licence": "MIT",
+  "licence_url": "https://huggingface.co/onnx-community/BiRefNet-ONNX",
+  "homepage": "https://github.com/ZhengPeng7/BiRefNet",
+  "size": 972666916,
+  "requires": [
+    "runtime"
+  ],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://huggingface.co/onnx-community/BiRefNet-ONNX/resolve/main/onnx/model.onnx",
+          "sha256": "58f621f00f5d756097615970a88a791584600dcf7c45b18a0a6267535a1ebd3c",
+          "size": 972666916,
+          "unpack": "file",
+          "dest": "model.onnx"
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "matte",
+    "arch": "birefnet",
+    "file": "model.onnx",
+    "input": "input_image",
+    "output": "output_image",
+    "size": 1024,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "format": 1,
+  "id": "matting-rvm-resnet50",
+  "kind": "model",
+  "name": "Robust Video Matting ResNet50",
+  "version": "1.0",
+  "summary": "A matte for a person, carried frame to frame, with finer hair and edges",
+  "licence": "GPL-3.0",
+  "licence_url": "https://github.com/PeterL1n/RobustVideoMatting/blob/master/LICENSE",
+  "homepage": "https://github.com/PeterL1n/RobustVideoMatting",
+  "size": 107479165,
+  "requires": [
+    "runtime"
+  ],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://github.com/PeterL1n/RobustVideoMatting/releases/download/v1.0.0/rvm_resnet50_fp32.onnx",
+          "sha256": "25db300fcb6ee27f941a1b52c97856e8d1f13c7f35817f81a612f89af0e8a85c",
+          "size": 107479165,
+          "unpack": "file",
+          "dest": "rvm.onnx"
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "matte",
+    "arch": "rvm",
+    "file": "rvm.onnx",
+    "src": "src",
+    "state_in": [
+      "r1i",
+      "r2i",
+      "r3i",
+      "r4i"
+    ],
+    "state_out": [
+      "r1o",
+      "r2o",
+      "r3o",
+      "r4o"
+    ],
+    "downsample": "downsample_ratio",
+    "foreground": "fgr",
+    "matte": "pha"
+  }
+}
