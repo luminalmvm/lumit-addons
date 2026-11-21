@@ -1,0 +1,46 @@
+{
+  "format": 1,
+  "id": "depth-anything-3-small",
+  "kind": "model",
+  "name": "Depth Anything V3 Small",
+  "version": "1.0",
+  "summary": "A depth map from a single frame",
+  "supersedes": ["depth-anything-v2-small"],
+  "licence": "Apache-2.0",
+  "licence_url": "https://huggingface.co/depth-anything/DA3-SMALL",
+  "homepage": "https://github.com/ByteDance-Seed/Depth-Anything-3",
+  "size": 105343155,
+  "requires": ["runtime"],
+  "platforms": {
+    "any": {
+      "downloads": [
+        {
+          "url": "https://huggingface.co/onnx-community/depth-anything-v3-small/resolve/0b6a7f3bf5595f9950b91389e0da3a0de130324c/onnx/model.onnx",
+          "sha256": "396008798244a074297fd88e450433b1357fc687f534939375c804ded86e7b2a",
+          "size": 640691,
+          "unpack": "file",
+          "dest": "model.onnx"
+        },
+        {
+          "url": "https://huggingface.co/onnx-community/depth-anything-v3-small/resolve/0b6a7f3bf5595f9950b91389e0da3a0de130324c/onnx/model.onnx_data",
+          "sha256": "802bb24741e67f5bb2b369fc64d40afe11439cc895d676d658d65cfb75c9860f",
+          "size": 104702464,
+          "unpack": "file",
+          "dest": "model.onnx_data"
+        }
+      ]
+    }
+  },
+  "model": {
+    "task": "depth",
+    "arch": "depth-anything-3",
+    "file": "model.onnx",
+    "input": "pixel_values",
+    "output": "predicted_depth",
+    "size": 504,
+    "multiple": 14,
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225],
+    "output_kind": "distance"
+  }
+}
