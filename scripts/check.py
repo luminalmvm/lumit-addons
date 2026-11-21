@@ -26,6 +26,7 @@ UNPACKS = {"file", "zip", "tar.gz"}
 ARCH_TASK = {
     "rife": "synthesis",
     "depth-anything": "depth",
+    "depth-anything-3": "depth",
     "rvm": "matte",
     "birefnet": "matte",
     "sam2": "segmentation",
@@ -34,11 +35,12 @@ ARCH_TASK = {
 }
 ARCHS = set(ARCH_TASK)
 
-DEPTH_KINDS = {"inverse-relative", "metric"}
+DEPTH_KINDS = {"inverse-relative", "metric", "distance"}
 
 TOP_KEYS = {
     "format", "id", "kind", "name", "version", "summary", "notes", "licence",
     "licence_url", "homepage", "size", "requires", "platforms", "model",
+    "supersedes",
 }
 TOP_REQUIRED = [
     "format", "id", "kind", "name", "version", "summary", "licence", "size",
@@ -109,6 +111,10 @@ MODEL_KEYS = {
         "output": text, "multiple": count,
     },
     "depth-anything": {
+        "file": text, "input": text, "output": text, "size": count,
+        "multiple": count, "mean": triple, "std": triple, "output_kind": text,
+    },
+    "depth-anything-3": {
         "file": text, "input": text, "output": text, "size": count,
         "multiple": count, "mean": triple, "std": triple, "output_kind": text,
     },
@@ -243,6 +249,13 @@ def check_manifest(m, ids, p):
         if key in m:
             p.want(where, text(m[key]), f"{key} is empty")
     p.want(where, count(m["size"]), "size is not a count of bytes")
+
+    if "supersedes" in m:
+        old = m["supersedes"]
+        if p.want(where, isinstance(old, list) and old and all(text(x) for x in old),
+                  "supersedes is not a list of addon ids"):
+            for gone in old:
+                p.want(where, gone in ids, f"supersedes {gone!r}, which is not in the catalogue")
 
     requires = m["requires"]
     if p.want(where, isinstance(requires, list), "requires is not a list"):
