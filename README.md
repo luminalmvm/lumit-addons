@@ -25,9 +25,9 @@ on a timer, so that button is the only time the app looks.
 the tensors Lumit speaks to it with. An install copies the manifest into the addon
 folder unchanged.
 
-Weights are fetched from their upstream release pages today, checked against the SHA-256
-in the manifest before Lumit sees them. Re-hosting them on this repository's releases is
-a later step, which changes the url and the hash and nothing else.
+Weights are fetched from their upstream release pages, checked against the SHA-256 in
+the manifest before Lumit sees them. A file upstream may replace is kept on this
+repository's releases instead, which changes the url and nothing else.
 
 ## Proposing an addon
 

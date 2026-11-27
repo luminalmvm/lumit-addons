@@ -15,8 +15,9 @@ The pack is three models, and every one runs on your own machine.
   come from the same page.
 - Silero VAD v6.2.1, under MIT, from the `snakers4/silero-vad` repository, hears where
   the speech is. Silence never reaches Whisper.
-- 3D-Speaker's ERes2Net, under Apache-2.0, as sherpa-onnx publishes it, tells voices
-  apart.
+- 3D-Speaker's ERes2Net, under Apache-2.0, as sherpa-onnx exported it, tells voices
+  apart. It is kept on this repository's releases, since sherpa-onnx replaces its own
+  copy whenever it exports again.
 
 Turbo was trained to transcribe and not to translate, so the pack says it does not
 translate and Lumit does not offer to write other languages in English with it.
