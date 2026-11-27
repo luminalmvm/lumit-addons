@@ -638,7 +638,7 @@
               "dest": "silero_vad.onnx"
             },
             {
-              "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
+              "url": "https://github.com/luminalmvm/lumit-addons/releases/download/eres2net-2024-10-14/3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
               "sha256": "c59158379255ad66e161679cca6af8d52d51e389e3224ab7d7a7baae295c2db5",
               "size": 26485263,
               "unpack": "file",
@@ -736,7 +736,7 @@
               "dest": "silero_vad.onnx"
             },
             {
-              "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
+              "url": "https://github.com/luminalmvm/lumit-addons/releases/download/eres2net-2024-10-14/3dspeaker_speech_eres2net_sv_en_voxceleb_16k.onnx",
               "sha256": "c59158379255ad66e161679cca6af8d52d51e389e3224ab7d7a7baae295c2db5",
               "size": 26485263,
               "unpack": "file",
