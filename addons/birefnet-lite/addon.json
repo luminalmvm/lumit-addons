@@ -15,7 +15,7 @@
     "any": {
       "downloads": [
         {
-          "url": "https://huggingface.co/onnx-community/BiRefNet_lite-ONNX/resolve/main/onnx/model.onnx",
+          "url": "https://huggingface.co/onnx-community/BiRefNet_lite-ONNX/resolve/de15b22ba131738a16dff04aab8bdf8dc32e3ac1/onnx/model.onnx",
           "sha256": "5600024376f572a557870a5eb0afb1e5961636bef4e1e22132025467d0f03333",
           "size": 224005088,
           "unpack": "file",

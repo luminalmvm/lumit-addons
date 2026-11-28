@@ -20,7 +20,7 @@
         "any": {
           "downloads": [
             {
-              "url": "https://huggingface.co/onnx-community/BiRefNet-ONNX/resolve/main/onnx/model.onnx",
+              "url": "https://huggingface.co/onnx-community/BiRefNet-ONNX/resolve/534d3c82d3bb8b2f0867db6dfbc3a525b8e42f67/onnx/model.onnx",
               "sha256": "58f621f00f5d756097615970a88a791584600dcf7c45b18a0a6267535a1ebd3c",
               "size": 972666916,
               "unpack": "file",
@@ -67,7 +67,7 @@
         "any": {
           "downloads": [
             {
-              "url": "https://huggingface.co/onnx-community/BiRefNet_lite-ONNX/resolve/main/onnx/model.onnx",
+              "url": "https://huggingface.co/onnx-community/BiRefNet_lite-ONNX/resolve/de15b22ba131738a16dff04aab8bdf8dc32e3ac1/onnx/model.onnx",
               "sha256": "5600024376f572a557870a5eb0afb1e5961636bef4e1e22132025467d0f03333",
               "size": 224005088,
               "unpack": "file",
@@ -224,7 +224,7 @@
         "any": {
           "downloads": [
             {
-              "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/resolve/main/onnx/model.onnx",
+              "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/resolve/4472b7362082ad9968fee890ca0f1e5aca36b93d/onnx/model.onnx",
               "sha256": "afb6a5c28f3b6bf1618c6e43f02073ef9dfdc70e937502d51603e57b0a1df10c",
               "size": 99060839,
               "unpack": "file",
@@ -321,7 +321,7 @@
         "any": {
           "downloads": [
             {
-              "url": "https://huggingface.co/yuvraj108c/rife-onnx/resolve/main/rife49_ensemble_True_scale_1_sim.onnx",
+              "url": "https://huggingface.co/yuvraj108c/rife-onnx/resolve/64de7265b6a06637c2f2c6a92ecd1972326499fe/rife49_ensemble_True_scale_1_sim.onnx",
               "sha256": "76e4cef9ab42fa7dd4e8f6e4aba47462051e3faa969e4bca6479784fbab0ac6f",
               "size": 21458882,
               "unpack": "file",
@@ -476,7 +476,7 @@
         "any": {
           "downloads": [
             {
-              "url": "https://huggingface.co/vietanhdev/segment-anything-2.1-onnx-models/resolve/main/sam2.1_hiera_large_20260221.zip",
+              "url": "https://huggingface.co/vietanhdev/segment-anything-2.1-onnx-models/resolve/6a3ac868340a3196a349050a6efae22a5acc0330/sam2.1_hiera_large_20260221.zip",
               "sha256": "07c8a5e445414529f0120f5d1c5699f3a70c38b217c249d699fa1308ef1645af",
               "size": 805244997,
               "unpack": "zip",
@@ -536,7 +536,7 @@
         "any": {
           "downloads": [
             {
-              "url": "https://huggingface.co/vietanhdev/segment-anything-2.1-onnx-models/resolve/main/sam2.1_hiera_tiny_20260221.zip",
+              "url": "https://huggingface.co/vietanhdev/segment-anything-2.1-onnx-models/resolve/6a3ac868340a3196a349050a6efae22a5acc0330/sam2.1_hiera_tiny_20260221.zip",
               "sha256": "c602cb3f6fd297312a415f885f0df3f0eef9fbb334b069c9d30e828f2ae7c69a",
               "size": 116507723,
               "unpack": "zip",
