@@ -14,7 +14,7 @@
     "any": {
       "downloads": [
         {
-          "url": "https://huggingface.co/vietanhdev/segment-anything-2.1-onnx-models/resolve/main/sam2.1_hiera_tiny_20260221.zip",
+          "url": "https://huggingface.co/vietanhdev/segment-anything-2.1-onnx-models/resolve/6a3ac868340a3196a349050a6efae22a5acc0330/sam2.1_hiera_tiny_20260221.zip",
           "sha256": "c602cb3f6fd297312a415f885f0df3f0eef9fbb334b069c9d30e828f2ae7c69a",
           "size": 116507723,
           "unpack": "zip",
